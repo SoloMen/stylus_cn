@@ -1,76 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>Document</title> 
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
-  <link rel="stylesheet" href="css/styles.css" /> 
-  <link rel="stylesheet" href="css/normalize.css" /> 
-  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-  <script type="text/javascript" src="js/responsive-nav.js"></script> 
+ <head>
+  <meta charset="UTF-8" />
+  <title>变量(Variables)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script>
     var doc = document, docEl = doc.documentElement;
     docEl.className = docEl.className.replace(/(^|\s)no-js(\s|$)/, " js ");
-  </script> 
- </head> 
- <body> 
-  <div role="navigation" id="nav"> 
-   <ul> 
-    <li><a href="index.html">stylus</a></li> 
-    <li><a href="Selectors.html">选择器</a></li> 
-    <li class="active"><a href="Variables.html">变量</a></li> 
-    <li><a href="Interpolation.html">插值</a></li> 
-    <li><a href="Operators.html">运算符</a></li> 
-    <li><a href="Mixins.html">混合书写</a></li> 
-    <li><a href="Functions.html">方法</a></li> 
-    <li><a href="KeywordArguments.html">关键字参数</a></li> 
-    <li><a href="Built-in_Functions.html">内置方法</a></li> 
-    <li><a href="RestParams.html">其余参数</a></li> 
-    <li><a href="Comments.html">注释</a></li> 
-    <li><a href="Conditionals.html">条件</a></li> 
-    <li><a href="Iteration.html.html">迭代</a></li> 
-    <li><a href="import.html">@import</a></li> 
-    <li><a href="media.html">@media</a></li> 
-    <li><a href="font-face.html">@font-face</a></li> 
-    <li><a href="keyframes.html">@keyframes</a></li> 
-    <li><a href="extend.html">@extend</a></li> 
-    <li><a href="url.html">url()</a></li> 
-    <li><a href="CSSLiteral.html">CSS字面量</a></li> 
-    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li> 
-    <li><a href="CharEscaping.html">字符转码</a></li> 
-    <li><a href="Executable.html">可执行性</a></li> 
-    <li><a href="ErrorReporting.html">错误报告</a></li> 
-    <li><a href="ConnectMiddleware.html">连接中间件</a></li> 
-    <li><a href="IntrospectionAPI.html">自检API</a></li> 
-    <li><a href="JavaScriptAPI.html">JavaScript API</a></li> 
-    <li><a href="CSS3_Extensions_with_Nib.html">Nib下CSS扩展</a></li> 
-    <li><a href="StylusOline.html">Stylus在线体验!</a></li> 
-   </ul> 
-  </div> 
-  <div class="main"> 
-   <a href="#nav" id="toggle">Menu</a> 
-   <div id="content"> 
+  </script>
+ </head>
+ <body>
+  <div role="navigation" id="nav">
+   <ul>
+    <li><a href="index.html">stylus</a></li>
+    <li><a href="Selectors.html">选择器</a></li>
+    <li class="active"><a href="Variables.html">变量</a></li>
+    <li><a href="Interpolation.html">插值</a></li>
+    <li><a href="Operators.html">运算符</a></li>
+    <li><a href="Mixins.html">混合书写</a></li>
+    <li><a href="Functions.html">方法</a></li>
+    <li><a href="KeywordArguments.html">关键字参数</a></li>
+    <li><a href="Built-in_Functions.html">内置方法</a></li>
+    <li><a href="RestParams.html">其余参数</a></li>
+    <li><a href="Comments.html">注释</a></li>
+    <li><a href="Conditionals.html">条件</a></li>
+    <li><a href="Iteration.html.html">迭代</a></li>
+    <li><a href="import.html">@import</a></li>
+    <li><a href="media.html">@media</a></li>
+    <li><a href="font-face.html">@font-face</a></li>
+    <li><a href="keyframes.html">@keyframes</a></li>
+    <li><a href="extend.html">@extend</a></li>
+    <li><a href="url.html">url()</a></li>
+    <li><a href="CSSLiteral.html">CSS字面量</a></li>
+    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li>
+    <li><a href="CharEscaping.html">字符转码</a></li>
+    <li><a href="Executable.html">可执行性</a></li>
+    <li><a href="ErrorReporting.html">错误报告</a></li>
+    <li><a href="ConnectMiddleware.html">连接中间件</a></li>
+    <li><a href="IntrospectionAPI.html">自检API</a></li>
+    <li><a href="JavaScriptAPI.html">JavaScript API</a></li>
+    <li><a href="http://github.com/visionmedia/nib">Nib下CSS扩展</a></li>
+    <li><a href="http://learnboost.github.com/stylus/try.html">Stylus在线体验!</a></li>
+   </ul>
+  </div>
+  <div class="main">
+   <a href="#nav" id="toggle">Menu</a>
+   <div id="content">
+    <h1>变量(Variables)</h1>
+    <h2>变量</h2>
+    <p>我们可以指定表达式为变量，然后在我们的样式中贯穿使用：</p>
+    <pre>font-size = 14px
 
-   </div> 
-   <div id="footer"> 
-    <div class="f_box"> 
-     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p> 
-     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p> 
-    </div> 
-    <div class="s_box"> 
-     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a> 
-    </div> 
-    <div class="t_box"> 
-     <ul class="legal-links pure-g"> 
-      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li> 
-      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li> 
-     </ul> 
-     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p> 
-    </div> 
-   </div> 
-</div> 
+body
+  font font-size Arial, sans-seri</pre>
+    <p>编译结果：</p>
+    <pre>body {
+  font: 14px Arial, sans-serif;
+}</pre>
+    <p>变量甚至可以组成一个表达式列表：</p>
+    <pre>font-size = 14px
+font = font-size "Lucida Grande", Arial
+
+body
+  font font sans-serif</pre>
+    <p>编译结果：</p>
+    <pre>body {
+  font: 14px "Lucida Grande", Arial sans-serif;
+}</pre>
+    <p>标识符（变量名，函数等），也可能包括$字符。例如：</p>
+    <pre>$font-size = 14px
+body {
+  font: $font-size sans-serif;
+}</pre>
+    <h2>属性查找</h2>
+    <p>Stylus有另外一个很酷的独特功能，不需要分配值给变量就可以定义引用属性。下面是个很好的例子，元素水平垂直居中对齐（典型的方法是使用百分比和margin负值），如下：</p>
+    <pre>#logo
+  position: absolute
+  top: 50%
+  left: 50%
+  width: w = 150px
+  height: h = 80px
+  margin-left: -(w / 2)
+  margin-top: -(h / 2)</pre>
+    <p>我们不使用这里的变量w和h, 而是简单地前置@字符在属性名前来访问该属性名对应的值：</p>
+    <pre>#logo
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 150px
+  height: 80px
+  margin-left: -(@width / 2)
+  margin-top: -(@height / 2)</pre>
+    <p>另外使用案例是基于其他属性有条件地定义属性。在下面这个例子中，我们默认指定<code>z-index</code>值为1，但是，只有在<code>z-index</code>之前未指定的时候才这样：</p>
+    <pre>position()
+  position: arguments
+  z-index: 1 unless @z-index
+
+#logo
+  z-index: 20
+  position: absolute
+
+#logo2
+  position: absolute</pre>
+    <p>属性会“向上冒泡”查找堆栈直到被发现，或者返回null（如果属性搞不定）。下面这个例子，@color为blue.</p>
+    <pre>body
+  color: red
+  ul
+    li
+      color: blue
+      a
+        background-color: @color</pre>
+   </div>
+   <div id="footer">
+    <div class="f_box">
+     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p>
+     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p>
+    </div>
+    <div class="s_box">
+     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a>
+    </div>
+    <div class="t_box">
+     <ul class="legal-links pure-g">
+      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li>
+      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li>
+     </ul>
+     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p>
+    </div>
+   </div>
+</div>
   <script>
     var navigation = responsiveNav("#nav", {customToggle: "#toggle"});
-  </script>  
+  </script>
  </body>
 </html>

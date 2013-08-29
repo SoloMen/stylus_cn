@@ -1,76 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>Document</title> 
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
-  <link rel="stylesheet" href="css/styles.css" /> 
-  <link rel="stylesheet" href="css/normalize.css" /> 
-  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-  <script type="text/javascript" src="js/responsive-nav.js"></script> 
+ <head>
+  <meta charset="UTF-8" />
+  <title>导入(@import)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script>
     var doc = document, docEl = doc.documentElement;
     docEl.className = docEl.className.replace(/(^|\s)no-js(\s|$)/, " js ");
-  </script> 
- </head> 
- <body> 
-  <div role="navigation" id="nav"> 
-   <ul> 
-    <li><a href="index.html">stylus</a></li> 
-    <li><a href="Selectors.html">选择器</a></li> 
-    <li><a href="Variables.html">变量</a></li> 
-    <li><a href="Interpolation.html">插值</a></li> 
-    <li><a href="Operators.html">运算符</a></li> 
-    <li><a href="Mixins.html">混合书写</a></li> 
-    <li><a href="Functions.html">方法</a></li> 
-    <li><a href="KeywordArguments.html">关键字参数</a></li> 
-    <li><a href="Built-in_Functions.html">内置方法</a></li> 
-    <li><a href="RestParams.html">其余参数</a></li> 
-    <li><a href="Comments.html">注释</a></li> 
-    <li><a href="Conditionals.html">条件</a></li> 
-    <li><a href="Iteration.html.html">迭代</a></li> 
-    <li class="active"><a href="import.html">@import</a></li> 
-    <li><a href="media.html">@media</a></li> 
-    <li><a href="font-face.html">@font-face</a></li> 
-    <li><a href="keyframes.html">@keyframes</a></li> 
-    <li><a href="extend.html">@extend</a></li> 
-    <li><a href="url.html">url()</a></li> 
-    <li><a href="CSSLiteral.html">CSS字面量</a></li> 
-    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li> 
-    <li><a href="CharEscaping.html">字符转码</a></li> 
-    <li><a href="Executable.html">可执行性</a></li> 
-    <li><a href="ErrorReporting.html">错误报告</a></li> 
-    <li><a href="ConnectMiddleware.html">连接中间件</a></li> 
-    <li><a href="IntrospectionAPI.html">自检API</a></li> 
-    <li><a href="JavaScriptAPI.html">JavaScript API</a></li> 
-    <li><a href="CSS3_Extensions_with_Nib.html">Nib下CSS扩展</a></li> 
-    <li><a href="StylusOline.html">Stylus在线体验!</a></li> 
-   </ul> 
-  </div> 
-  <div class="main"> 
-   <a href="#nav" id="toggle">Menu</a> 
-   <div id="content"> 
+  </script>
+ </head>
+ <body>
+  <div role="navigation" id="nav">
+   <ul>
+    <li><a href="index.html">stylus</a></li>
+    <li><a href="Selectors.html">选择器</a></li>
+    <li><a href="Variables.html">变量</a></li>
+    <li><a href="Interpolation.html">插值</a></li>
+    <li><a href="Operators.html">运算符</a></li>
+    <li><a href="Mixins.html">混合书写</a></li>
+    <li><a href="Functions.html">方法</a></li>
+    <li><a href="KeywordArguments.html">关键字参数</a></li>
+    <li><a href="Built-in_Functions.html">内置方法</a></li>
+    <li><a href="RestParams.html">其余参数</a></li>
+    <li><a href="Comments.html">注释</a></li>
+    <li><a href="Conditionals.html">条件</a></li>
+    <li><a href="Iteration.html.html">迭代</a></li>
+    <li class="active"><a href="import.html">@import</a></li>
+    <li><a href="media.html">@media</a></li>
+    <li><a href="font-face.html">@font-face</a></li>
+    <li><a href="keyframes.html">@keyframes</a></li>
+    <li><a href="extend.html">@extend</a></li>
+    <li><a href="url.html">url()</a></li>
+    <li><a href="CSSLiteral.html">CSS字面量</a></li>
+    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li>
+    <li><a href="CharEscaping.html">字符转码</a></li>
+    <li><a href="Executable.html">可执行性</a></li>
+    <li><a href="ErrorReporting.html">错误报告</a></li>
+    <li><a href="ConnectMiddleware.html">连接中间件</a></li>
+    <li><a href="IntrospectionAPI.html">自检API</a></li>
+    <li><a href="JavaScriptAPI.html">JavaScript API</a></li>
+    <li><a href="http://github.com/visionmedia/nib">Nib下CSS扩展</a></li>
+    <li><a href="http://learnboost.github.com/stylus/try.html">Stylus在线体验!</a></li>
+   </ul>
+  </div>
+  <div class="main">
+   <a href="#nav" id="toggle">Menu</a>
+   <div id="content">
+    <h1>导入(@import)</h1>
+    <h2>导入</h2>
+    <p>Stylus支持字面<code>@import CSS</code>, 也支持其他Stylus样式的动态导入。</p>
+    <h2>字面CSS</h2>
+    <p>任何<code>.css</code>扩展的文件名将作为字面量。例如：</p>
+    <pre>@import "reset.css"</pre>
+    <p>渲染如下：</p>
+    <pre>@import "reset.css"</pre>
+    <h2>Stylus导入</h2>
+    <p>当使用<code>@import</code>没有<code>.css</code>扩展，会被认为是Stylus片段（如：<code>@import "mixins/border-radius"</code>）。</p>
+    <p><code>@import</code>工作原理为：遍历目录队列，并检查任意目录中是否有该文件（类似node的require.paths）。该队列默认为单一路径，从filename选项的dirname衍生而来。 因此，如果你的文件名是<code>/tmp/testing/stylus/main.styl</code>，导入将显现为<code>/tmp/testing/stylus/</code>。</p>
+    <p><code>@import</code>也支持索引形式。这意味着当你<code>@import blueprint</code>, 则会理解成<code>blueprint.styl</code>或<code>blueprint/index.styl</code>. 对于库而言，这很有用，既可以展示所有特征与功能，同时又能导入特征子集。
+    </p>
+    <p>如下很常见的库结构：</p>
+    <pre>./tablet
+  |-- index.styl
+  |-- vendor.styl
+  |-- buttons.styl
+  |-- images.styl </pre>
+    <p>下面这个例子中，我们设置paths选项用来为Stylus提供额外路径。</p>
+    <p>在<code>./test.styl</code>中，我们可以<code>@import "mixins/border-radius"</code>或<code>@import "border-radius"</code>（因为<code>./mixins</code> 暴露给了Stylus）。</p>
+    <pre>/**
+  * 依赖模块
+  */
 
-   </div> 
-   <div id="footer"> 
-    <div class="f_box"> 
-     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p> 
-     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p> 
-    </div> 
-    <div class="s_box"> 
-     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a> 
-    </div> 
-    <div class="t_box"> 
-     <ul class="legal-links pure-g"> 
-      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li> 
-      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li> 
-     </ul> 
-     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p> 
-    </div> 
-   </div> 
-</div> 
+  var stylus = require('../')
+    , str = require('fs').readFileSync(__dirname + '/test.styl', 'utf8');
+
+  var paths = [
+      __dirname
+    , __dirname + '/mixins'
+  ];
+
+  stylus(str)
+    .set('filename', __dirname + '/test.styl')
+    .set('paths', paths)
+    .render(function(err, css){
+      if (err) throw err;
+      console.log(css);
+    });</pre>
+    <h2>JavaScript导入API</h2>
+    <p>当使用<code>.import(path)</code>方法，这些导入是被推迟的，直到赋值。</p>
+    <pre>var stylus = require('../')
+  , str = require('fs').readFileSync(__dirname + '/test.styl', 'utf8');
+
+stylus(str)
+  .set('filename', __dirname + '/test.styl')
+  .import('mixins/vendor')
+  .render(function(err, css){
+  if (err) throw err;
+  console.log(css);
+});</pre>
+    <p>下面语句：</p>
+    <pre>@import 'mixins/vendor'</pre>
+    <p>等同于：</p>
+    <pre>.import('mixins/vendor')</pre>
+   </div>
+   <div id="footer">
+    <div class="f_box">
+     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p>
+     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p>
+    </div>
+    <div class="s_box">
+     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a>
+    </div>
+    <div class="t_box">
+     <ul class="legal-links pure-g">
+      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li>
+      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li>
+     </ul>
+     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p>
+    </div>
+   </div>
+</div>
   <script>
     var navigation = responsiveNav("#nav", {customToggle: "#toggle"});
-  </script>  
+  </script>
  </body>
 </html>

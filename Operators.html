@@ -1,76 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>Document</title> 
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
-  <link rel="stylesheet" href="css/styles.css" /> 
-  <link rel="stylesheet" href="css/normalize.css" /> 
-  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-  <script type="text/javascript" src="js/responsive-nav.js"></script> 
+ <head>
+  <meta charset="UTF-8" />
+  <title>运算符(Operators)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script>
     var doc = document, docEl = doc.documentElement;
     docEl.className = docEl.className.replace(/(^|\s)no-js(\s|$)/, " js ");
-  </script> 
- </head> 
- <body> 
-  <div role="navigation" id="nav"> 
-   <ul> 
-    <li><a href="index.html">stylus</a></li> 
-    <li><a href="Selectors.html">选择器</a></li> 
-    <li><a href="Variables.html">变量</a></li> 
-    <li><a href="Interpolation.html">插值</a></li> 
-    <li class="active"><a href="Operators.html">运算符</a></li> 
-    <li><a href="Mixins.html">混合书写</a></li> 
-    <li><a href="Functions.html">方法</a></li> 
-    <li><a href="KeywordArguments.html">关键字参数</a></li> 
-    <li><a href="Built-in_Functions.html">内置方法</a></li> 
-    <li><a href="RestParams.html">其余参数</a></li> 
-    <li><a href="Comments.html">注释</a></li> 
-    <li><a href="Conditionals.html">条件</a></li> 
-    <li><a href="Iteration.html.html">迭代</a></li> 
-    <li><a href="import.html">@import</a></li> 
-    <li><a href="media.html">@media</a></li> 
-    <li><a href="font-face.html">@font-face</a></li> 
-    <li><a href="keyframes.html">@keyframes</a></li> 
-    <li><a href="extend.html">@extend</a></li> 
-    <li><a href="url.html">url()</a></li> 
-    <li><a href="CSSLiteral.html">CSS字面量</a></li> 
-    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li> 
-    <li><a href="CharEscaping.html">字符转码</a></li> 
-    <li><a href="Executable.html">可执行性</a></li> 
-    <li><a href="ErrorReporting.html">错误报告</a></li> 
-    <li><a href="ConnectMiddleware.html">连接中间件</a></li> 
-    <li><a href="IntrospectionAPI.html">自检API</a></li> 
-    <li><a href="JavaScriptAPI.html">JavaScript API</a></li> 
-    <li><a href="CSS3_Extensions_with_Nib.html">Nib下CSS扩展</a></li> 
-    <li><a href="StylusOline.html">Stylus在线体验!</a></li> 
-   </ul> 
-  </div> 
-  <div class="main"> 
-   <a href="#nav" id="toggle">Menu</a> 
-   <div id="content"> 
+  </script>
+ </head>
+ <body>
+  <div role="navigation" id="nav">
+   <ul>
+    <li><a href="index.html">stylus</a></li>
+    <li><a href="Selectors.html">选择器</a></li>
+    <li><a href="Variables.html">变量</a></li>
+    <li><a href="Interpolation.html">插值</a></li>
+    <li class="active"><a href="Operators.html">运算符</a></li>
+    <li><a href="Mixins.html">混合书写</a></li>
+    <li><a href="Functions.html">方法</a></li>
+    <li><a href="KeywordArguments.html">关键字参数</a></li>
+    <li><a href="Built-in_Functions.html">内置方法</a></li>
+    <li><a href="RestParams.html">其余参数</a></li>
+    <li><a href="Comments.html">注释</a></li>
+    <li><a href="Conditionals.html">条件</a></li>
+    <li><a href="Iteration.html.html">迭代</a></li>
+    <li><a href="import.html">@import</a></li>
+    <li><a href="media.html">@media</a></li>
+    <li><a href="font-face.html">@font-face</a></li>
+    <li><a href="keyframes.html">@keyframes</a></li>
+    <li><a href="extend.html">@extend</a></li>
+    <li><a href="url.html">url()</a></li>
+    <li><a href="CSSLiteral.html">CSS字面量</a></li>
+    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li>
+    <li><a href="CharEscaping.html">字符转码</a></li>
+    <li><a href="Executable.html">可执行性</a></li>
+    <li><a href="ErrorReporting.html">错误报告</a></li>
+    <li><a href="ConnectMiddleware.html">连接中间件</a></li>
+    <li><a href="IntrospectionAPI.html">自检API</a></li>
+    <li><a href="JavaScriptAPI.html">JavaScript API</a></li>
+    <li><a href="http://github.com/visionmedia/nib">Nib下CSS扩展</a></li>
+    <li><a href="http://learnboost.github.com/stylus/try.html">Stylus在线体验!</a></li>
+   </ul>
+  </div>
+  <div class="main">
+   <a href="#nav" id="toggle">Menu</a>
+   <div id="content">
+    <h1>运算符(Operators)</h1>
+    <h2>运算符优先级</h2>
+    <p>下表运算符优先级，从最高到最低</p>
+    <pre>[]
+! ~ + -
+is defined
+** * / %
++ -
+... ..
+&#60;= >= &#60; >
+in
+== is != is not isnt
+is a
+&#38;&#38; and || or
+?:
+= := ?= += -= *= /= %=
+not
+if unless</pre>
+    <h2>一元运算符</h2>
+    <p>以下一元运算符可用，!, not, -, +, 以及~.</p>
+    <pre>!0
+// => true
 
-   </div> 
-   <div id="footer"> 
-    <div class="f_box"> 
-     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p> 
-     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p> 
-    </div> 
-    <div class="s_box"> 
-     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a> 
-    </div> 
-    <div class="t_box"> 
-     <ul class="legal-links pure-g"> 
-      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li> 
-      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li> 
-     </ul> 
-     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p> 
-    </div> 
-   </div> 
-</div> 
+!!0
+// => false
+
+!1
+// => false
+
+!!5px
+// => true
+
+-5px
+// => -5px
+
+--5px
+// => 5px
+
+not true
+// => false
+
+not not true
+// => true</pre>
+    <p>逻辑运算符not的优先级较低，因此，下面这个例子可以替换：</p>
+    <pre>a = 0
+b = 1
+
+!a and !b
+// => false
+// 解析为: (!a) and (!b)</pre>
+    <p>可使用：</p>
+    <pre>not a or b
+// => false
+// 解析为: not (a or b)</pre>
+    <h2>二元运算符</h2>
+    <p>下标运算符[]允许我们通过索引获取表达式内部值。括号表达式可以充当元组（如(15px 5px), (1, 2, 3)）。
+下面这个例子使用错误处理的元组（并展示了该结构的多功能性）：</p>
+    <pre>add(a, b)
+  if a is a 'unit' and b is a 'unit'
+    a + b
+  else
+    (error 'a 和 b 必须是 units!')
+
+body
+  padding add(1,'5')
+  // => padding: error "a 和 b 必须是 units";
+
+  padding add(1,'5')[0]
+  // => padding: error;
+
+  padding add(1,'5')[0] == error
+  // => padding: true;
+
+  padding add(1,'5')[1]
+  // => padding: "a 和 b 必须是 units";</pre>
+    <p>这儿有个更复杂的例子。现在，我们调用内置的error()函数，当标识符（第一个值）等于error的时候返回错误信息。</p>
+    <pre>if (val = add(1,'5'))[0] == error
+  error(val[1])</pre>
+    <h2>范围<code>.. ...</code></h2>
+    <p>同时提供包含界线操作符(<code>..</code>)和范围操作符(<code>...</code>)，见下表达式：</p>
+    <pre>1..5
+// => 1 2 3 4 5
+
+1...5
+// => 1 2 3 4</pre>
+    <h2>加减：<code>+ -</code></h2>
+    <p>二元加乘运算其单位会转化，或使用默认字面量值。例如，5s - 2px结果是3s.</p>
+    <pre>15px - 5px
+// => 10px
+
+5 - 2
+// => 3
+
+5in - 50mm
+// => 3.031in
+
+5s - 1000ms
+// => 4s
+
+20mm + 4in
+// => 121.6mm
+
+"foo " + "bar"
+// => "foo bar"
+
+"num " + 15
+// => "num 15"</pre>
+    <h2>乘除：<code>/ * %</code></h2>
+    <pre>2000ms + (1s * 2)
+// => 4000ms
+
+5s / 2
+// => 2.5s
+
+4 % 2
+// => 0</pre>
+    <p>当在属性值内使用<code>/</code>时候，你必须用括号包住。否则<code>/</code>会根据其字面意思处理（支持CSS的<code>line-height</code>）。</p>
+    <pre>font: 14px/1.5;</pre>
+    <p>但是，下面这个却等同于<code>14px ÷ 1.5:</code></p>
+    <pre>font: (14px/1.5);</pre>
+    <p>只有<code>/</code>操作符的时候需要这样。</p>
+    <h2>指数：<code>**</code></h2>
+    <p>指数操作符：</p>
+    <pre>2 ** 8
+// => 256</pre>
+    <h2>相等与关系运算：<code>== != >= &#60;= > &#60;</code></h2>
+    <p>相等运算符可以被用来等同单位、颜色、字符串甚至标识符。这是个强大的概念，甚至任意的标识符（例如wahoo）可以作为原子般使用。函数可以返回yes和no代替true和false（虽然不建议）。</p>
+    <pre>5 == 5
+// => true
+
+10 > 5
+// => true
+
+#fff == #fff
+// => true
+
+true == false
+// => false
+
+wahoo == yay
+// => false
+
+wahoo == wahoo
+// => true
+
+"test" == "test"
+// => true
+
+true is true
+// => true
+
+'hey' is not 'bye'
+// => true
+
+'hey' isnt 'bye'
+// => true
+
+(foo bar) == (foo bar)
+// => true
+
+(1 2 3) == (1 2 3)
+// => true
+
+(1 2 3) == (1 1 3)
+// => false</pre>
+    <p>只有精确值才匹配，例如，0 == false和null == false均返回false.
+别名：</p>
+    <pre>==    is
+!=    is not
+!=    isnt</pre>
+    <h2>真与假</h2>
+    <p>Stylus近乎一切都是true, 包括有后缀的单位，甚至0%, 0px等都被认作true.
+不过，0在算术上本身是false. </p>
+    <p>表达式（或“列表”）长度大于1被认为是真。</p>
+    <p>ture的例子：</p>
+    <pre>0%
+0px
+1px
+-1
+-1px
+hey
+'hey'
+(0 0 0)
+('' '')</pre>
+    <p>false的例子：</p>
+    <pre>0
+null
+false
+''</pre>
+    <h2>逻辑操作符：<code>&#38;&#38; || 和 or</code></h2>
+    <p>逻辑操作符<code>&#38;&#38;</code>和<code>||</code>别名是<code>and / or</code>。它们优先级相同。</p>
+    <pre>5 &#38;&#38; 3
+// => 3
+
+0 || 5
+// => 5
+
+0 &#38;&#38; 5
+// => 0
+
+#fff is a 'rgba' and 15 is a 'unit'
+// => true</pre>
+    <h2>存在操作符：<code>in</code></h2>
+    <p>检查左边内容是否在右边的表达式中。</p>
+    <p>简单的例子：</p>
+    <pre>nums = 1 2 3
+1 in nums
+// => true
+
+5 in nums
+// => false</pre>
+    <p>一些未定义标识符：</p>
+    <pre>words = foo bar baz
+bar in words
+// => true
+
+HEY in words
+// => false</pre>
+    <p>元组同样适用：</p>
+    <pre>vals = (error 'one') (error 'two')
+error in vals
+// => false
+
+(error 'one') in vals
+// => true
+
+(error 'two') in vals
+// => true
+
+(error 'something') in vals
+// => false</pre>
+    <p>混合书写适用例子：</p>
+    <pre>pad(types = padding, n = 5px)
+  if padding in types
+    padding n
+  if margin in types
+    margin n
+
+body
+  pad()
+
+body
+  pad(margin)
+
+body
+  pad(padding margin, 10px)</pre>
+    <p>对应于：</p>
+    <pre>body {
+  padding: 5px;
+}
+body {
+  margin: 5px;
+}
+body {
+  padding: 10px;
+  margin: 10px;
+}</pre>
+    <h2>条件赋值：<code>?= :=</code></h2>
+    <p>条件赋值操作符?=（别名?:）让我们无需破坏旧值（如果存在）定义变量。该操作符可以扩展成三元内is defined的二元操作。</p>
+    <p>例如，下面这些都是平起平坐的：</p>
+    <pre>color := white
+color ?= white
+color = color is defined ? color : white</pre>
+    <p>如果我们使用等号=, 就只是简单地赋值。</p>
+    <pre>color = white
+color = black
+
+color
+// => black</pre>
+    <p>但当使用?=，第二个相当就嗝屁了（因为变量已经定义了）：</p>
+    <pre>color = white
+color ?= black
+
+color
+// => white</pre>
+    <h2>实例检查：<code>is a</code></h2>
+    <p>Stylus提供一个二元运算符叫做<code>is a</code>, 用做类型检查。</p>
+    <pre>15 is a 'unit'
+// => true
+
+#fff is a 'rgba'
+// => true
+
+15 is a 'rgba'
+// => false</pre>
+    <p>另外，我们可以使用<code>type()</code>这个内置函数。</p>
+    <pre>type(#fff) == 'rgba'
+// => true</pre>
+    <p>注意：color是唯一的特殊情况，当左边是RGBA或者HSLA节点时，都为true.</p>
+    <h2>变量定义：<code>is defined</code></h2>
+    <p>此伪二元运算符右边空荡荡，左边无计算。用来检查变量是否已经分配了值。</p>
+    <pre>foo is defined
+// => false
+
+foo = 15px
+foo is defined
+// => true
+
+#fff is defined
+// => 'invalid "is defined" check on non-variable #fff'</pre>
+    <p>另外，我们可以使用内置<code>lookup(name)</code>方法做动态查找。</p>
+    <pre>name = 'blue'
+lookup('light-' + name)
+// => null
+
+light-blue = #80e2e9
+lookup('light-' + name)
+// => #80e2e9</pre>
+    <p>该操作符必不可少，因为一个未定义的标识符仍是真值。如：</p>
+    <pre>body
+  if ohnoes
+    padding 5px</pre>
+    <p>当未定义的时候，产生的是下面的CSS：</p>
+    <pre>body {
+  padding: 5px;
+}</pre>
+    <p>显然，这不是我们想要的，如下书写就安全了</p>
+    <pre>body
+  if ohnoes is defined
+    padding 5px</pre>
+    <h2>三元运算符</h2>
+    <p>三元运算符的运作正如大部分语言里面的那样。三个操作对象的操作符（条件表达式、真表达式以及假表达式）。</p>
+    <pre>num = 15
+num ? unit(num, 'px') : 20px
+// => 15px</pre>
+    <h2>铸造</h2>
+    <p>作为替代简洁的内置unit()函数，语法(expr) unit可用来强制后缀。</p>
+    <pre>body
+  n = 5
+  foo: (n)em
+  foo: (n)%
+  foo: (n + 5)%
+  foo: (n * 5)px
+  foo: unit(n + 5, '%')
+  foo: unit(5 + 180 / 2, deg)</pre>
+    <h2>颜色操作</h2>
+    <p>颜色操作提供了一个简洁，富有表现力的方式来改变其组成。例如，我们可以对每个RGB：</p>
+    <pre>#0e0 + #0e0
+// => #0f0</pre>
+    <p>另外一个例子是通过增加或减少百分值调整颜色亮度。颜色亮，加；暗，则减。</p>
+    <pre>#888 + 50%
+// => #c3c3c3
+
+#888 - 50%
+// => #444</pre>
+    <p>我们也可以通过增加或减去色度调整色调。例如，红色增加65deg就变成了黄色。</p>
+    <pre>#f00 + 50deg
+// => #ffd500</pre>
+    <p>值适当固定。例如，我们可以"旋转"180度的色调，如果目前的值是320deg, 将变成140deg.</p>
+    <p>我们也可能一次调整几个值（包括alpha），通过使用rgb(), rgba(), hsl(), 或 hsla():</p>
+    <pre>#f00 - rgba(100,0,0,0.5)
+// => rgba(155,0,0,0.5)</pre>
+    <h2>格式化字符串</h2>
+    <p>格式化字符串模样的字符串%可以用来生成字面量值，通过传参给内置<code>s()</code>方法。</p>
+    <pre>'X::Microsoft::Crap(%s)' % #fc0
+// => X::Microsoft::Crap(#fc0)</pre>
+    <p>多个值需要括起来：</p>
+    <pre>'-webkit-gradient(%s, %s, %s)' % (linear (0 0) (0 100%))
+// => -webkit-gradient(linear, 0 0, 0 100%)</pre>
+   </div>
+   <div id="footer">
+    <div class="f_box">
+     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p>
+     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p>
+    </div>
+    <div class="s_box">
+     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a>
+    </div>
+    <div class="t_box">
+     <ul class="legal-links pure-g">
+      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li>
+      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li>
+     </ul>
+     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p>
+    </div>
+   </div>
+</div>
   <script>
     var navigation = responsiveNav("#nav", {customToggle: "#toggle"});
-  </script>  
+  </script>
  </body>
 </html>

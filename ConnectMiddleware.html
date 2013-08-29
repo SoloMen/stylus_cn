@@ -1,76 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>Document</title> 
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
-  <link rel="stylesheet" href="css/styles.css" /> 
-  <link rel="stylesheet" href="css/normalize.css" /> 
-  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-  <script type="text/javascript" src="js/responsive-nav.js"></script> 
+ <head>
+  <meta charset="UTF-8" />
+  <title>连接中间件(Connect Middleware)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script>
     var doc = document, docEl = doc.documentElement;
     docEl.className = docEl.className.replace(/(^|\s)no-js(\s|$)/, " js ");
-  </script> 
- </head> 
- <body> 
-  <div role="navigation" id="nav"> 
-   <ul> 
-    <li><a href="index.html">stylus</a></li> 
-    <li><a href="Selectors.html">选择器</a></li> 
-    <li><a href="Variables.html">变量</a></li> 
-    <li><a href="Interpolation.html">插值</a></li> 
-    <li><a href="Operators.html">运算符</a></li> 
-    <li><a href="Mixins.html">混合书写</a></li> 
-    <li><a href="Functions.html">方法</a></li> 
-    <li><a href="KeywordArguments.html">关键字参数</a></li> 
-    <li><a href="Built-in_Functions.html">内置方法</a></li> 
-    <li><a href="RestParams.html">其余参数</a></li> 
-    <li><a href="Comments.html">注释</a></li> 
-    <li><a href="Conditionals.html">条件</a></li> 
-    <li><a href="Iteration.html.html">迭代</a></li> 
-    <li><a href="import.html">@import</a></li> 
-    <li><a href="media.html">@media</a></li> 
-    <li><a href="font-face.html">@font-face</a></li> 
-    <li><a href="keyframes.html">@keyframes</a></li> 
-    <li><a href="extend.html">@extend</a></li> 
-    <li><a href="url.html">url()</a></li> 
-    <li><a href="CSSLiteral.html">CSS字面量</a></li> 
-    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li> 
-    <li><a href="CharEscaping.html">字符转码</a></li> 
-    <li><a href="Executable.html">可执行性</a></li> 
-    <li><a href="ErrorReporting.html">错误报告</a></li> 
-    <li class="active"><a href="ConnectMiddleware.html">连接中间件</a></li> 
-    <li><a href="IntrospectionAPI.html">自检API</a></li> 
-    <li><a href="JavaScriptAPI.html">JavaScript API</a></li> 
-    <li><a href="CSS3_Extensions_with_Nib.html">Nib下CSS扩展</a></li> 
-    <li><a href="StylusOline.html">Stylus在线体验!</a></li> 
-   </ul> 
-  </div> 
-  <div class="main"> 
-   <a href="#nav" id="toggle">Menu</a> 
-   <div id="content"> 
+  </script>
+ </head>
+ <body>
+  <div role="navigation" id="nav">
+   <ul>
+    <li><a href="index.html">stylus</a></li>
+    <li><a href="Selectors.html">选择器</a></li>
+    <li><a href="Variables.html">变量</a></li>
+    <li><a href="Interpolation.html">插值</a></li>
+    <li><a href="Operators.html">运算符</a></li>
+    <li><a href="Mixins.html">混合书写</a></li>
+    <li><a href="Functions.html">方法</a></li>
+    <li><a href="KeywordArguments.html">关键字参数</a></li>
+    <li><a href="Built-in_Functions.html">内置方法</a></li>
+    <li><a href="RestParams.html">其余参数</a></li>
+    <li><a href="Comments.html">注释</a></li>
+    <li><a href="Conditionals.html">条件</a></li>
+    <li><a href="Iteration.html.html">迭代</a></li>
+    <li><a href="import.html">@import</a></li>
+    <li><a href="media.html">@media</a></li>
+    <li><a href="font-face.html">@font-face</a></li>
+    <li><a href="keyframes.html">@keyframes</a></li>
+    <li><a href="extend.html">@extend</a></li>
+    <li><a href="url.html">url()</a></li>
+    <li><a href="CSSLiteral.html">CSS字面量</a></li>
+    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li>
+    <li><a href="CharEscaping.html">字符转码</a></li>
+    <li><a href="Executable.html">可执行性</a></li>
+    <li><a href="ErrorReporting.html">错误报告</a></li>
+    <li class="active"><a href="ConnectMiddleware.html">连接中间件</a></li>
+    <li><a href="IntrospectionAPI.html">自检API</a></li>
+    <li><a href="JavaScriptAPI.html">JavaScript API</a></li>
+    <li><a href="http://github.com/visionmedia/nib">Nib下CSS扩展</a></li>
+    <li><a href="http://learnboost.github.com/stylus/try.html">Stylus在线体验!</a></li>
+   </ul>
+  </div>
+  <div class="main">
+   <a href="#nav" id="toggle">Menu</a>
+   <div id="content">
+    <h1>连接中间件(Connect Middleware)</h1>
+    <h2>连接中间件</h2>
+    <p>有了连接中间件，无论Stylus片段什么时候改变，这些片段都能够自动编译。</p>
+    <p>stylus.middleware(options)</p>
+    <h2>选项</h2>
+    <p>返回给定<code>options</code>下的连接中间件。</p>
+    <pre>`serve`     Serve the stylus files from `dest` [true]
+`force`     Always re-compile
+`src`       Source directory used to find .styl files
+`dest`      Destination directory used to output .css files
+            when undefined defaults to `src`.
+`compile`   Custom compile function, accepting the arguments
+           `(str, path)`.
+`compress`  Whether the output .css files should be
+            compressed
+`firebug`   Emits debug infos in the generated css that can
+            be used by the FireStylus Firebug plugin
+`linenos`   Emits comments in the generated css indicating
+            the corresponding stylus line</pre>
+    <p>上面中文翻译如下：</p>
+    <pre>`serve`     从 `dest` 提供stylus文件 [true]
+`force`     总是重新编译
+`src`       资源目录用来查找 .styl 文件
+`dest`      `src`默认为undefined时，用来输出 .css 文件的目标目录
+`compile`   自定义编译函数，接受参数`(str, path)`.
+`compress`  是否输出的 .css 文件要被压缩
+`firebug`   生成的CSS中发出调试信息，可被Firebug插件FireStylus使
+            用
+`linenos`   生成的CSS中发出注解，表明响应的stylus行</pre>
+    <h2>例子</h2>
+    <p>从<code>./public</code>提供<code>.styl</code>文件。</p>
+    <pre>var app = connect();
 
-   </div> 
-   <div id="footer"> 
-    <div class="f_box"> 
-     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p> 
-     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p> 
-    </div> 
-    <div class="s_box"> 
-     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a> 
-    </div> 
-    <div class="t_box"> 
-     <ul class="legal-links pure-g"> 
-      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li> 
-      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li> 
-     </ul> 
-     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p> 
-    </div> 
-   </div> 
-</div> 
+app.middleware(__dirname + '/public');</pre>
+    <p>改变src以及dest项来修改.styl文件哪里被加载，哪里被保存。</p>
+    <pre>var app = connect();
+
+app.middleware({
+  src: __dirname + '/stylesheets',
+  dest: __dirname + '/public'
+});</pre>
+    <p>这里我们建立自定义的编译函数，这样，我们就能设置compress项，或是定义附加的函数。</p>
+    <p>默认情况下，编译函数是简单地设置filename以及渲染CSS. 在下面这个例子中，我们压缩输出内容，使用"nib"库插件，以及自动导入。</p>
+    <pre>function compile(str, path) {
+  return stylus(str)
+    .set('filename', path)
+    .set('compress', true)
+    .use(nib())
+    .import('nib');
+}</pre>
+    <p>作为选项传递应该像这样：</p>
+    <pre>var app = connect();
+
+app.middleware({
+    src: __dirname
+  , dest: __dirname + '/public'
+  , compile: compile
+})</pre>
+   </div>
+   <div id="footer">
+    <div class="f_box">
+     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p>
+     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p>
+    </div>
+    <div class="s_box">
+     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a>
+    </div>
+    <div class="t_box">
+     <ul class="legal-links pure-g">
+      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li>
+      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li>
+     </ul>
+     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p>
+    </div>
+   </div>
+</div>
   <script>
     var navigation = responsiveNav("#nav", {customToggle: "#toggle"});
-  </script>  
+  </script>
  </body>
 </html>

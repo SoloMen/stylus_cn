@@ -1,76 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>Document</title> 
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
-  <link rel="stylesheet" href="css/styles.css" /> 
-  <link rel="stylesheet" href="css/normalize.css" /> 
-  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-  <script type="text/javascript" src="js/responsive-nav.js"></script> 
+ <head>
+  <meta charset="UTF-8" />
+  <title>可执行性(Executable)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script>
     var doc = document, docEl = doc.documentElement;
     docEl.className = docEl.className.replace(/(^|\s)no-js(\s|$)/, " js ");
-  </script> 
- </head> 
- <body> 
-  <div role="navigation" id="nav"> 
-   <ul> 
-    <li><a href="index.html">stylus</a></li> 
-    <li><a href="Selectors.html">选择器</a></li> 
-    <li><a href="Variables.html">变量</a></li> 
-    <li><a href="Interpolation.html">插值</a></li> 
-    <li><a href="Operators.html">运算符</a></li> 
-    <li><a href="Mixins.html">混合书写</a></li> 
-    <li><a href="Functions.html">方法</a></li> 
-    <li><a href="KeywordArguments.html">关键字参数</a></li> 
-    <li><a href="Built-in_Functions.html">内置方法</a></li> 
-    <li><a href="RestParams.html">其余参数</a></li> 
-    <li><a href="Comments.html">注释</a></li> 
-    <li><a href="Conditionals.html">条件</a></li> 
-    <li><a href="Iteration.html.html">迭代</a></li> 
-    <li><a href="import.html">@import</a></li> 
-    <li><a href="media.html">@media</a></li> 
-    <li><a href="font-face.html">@font-face</a></li> 
-    <li><a href="keyframes.html">@keyframes</a></li> 
-    <li><a href="extend.html">@extend</a></li> 
-    <li><a href="url.html">url()</a></li> 
-    <li><a href="CSSLiteral.html">CSS字面量</a></li> 
-    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li> 
-    <li><a href="CharEscaping.html">字符转码</a></li> 
-    <li class="active"><a href="Executable.html">可执行性</a></li> 
-    <li><a href="ErrorReporting.html">错误报告</a></li> 
-    <li><a href="ConnectMiddleware.html">连接中间件</a></li> 
-    <li><a href="IntrospectionAPI.html">自检API</a></li> 
-    <li><a href="JavaScriptAPI.html">JavaScript API</a></li> 
-    <li><a href="CSS3_Extensions_with_Nib.html">Nib下CSS扩展</a></li> 
-    <li><a href="StylusOline.html">Stylus在线体验!</a></li> 
-   </ul> 
-  </div> 
-  <div class="main"> 
-   <a href="#nav" id="toggle">Menu</a> 
-   <div id="content"> 
+  </script>
+ </head>
+ <body>
+  <div role="navigation" id="nav">
+   <ul>
+    <li><a href="index.html">stylus</a></li>
+    <li><a href="Selectors.html">选择器</a></li>
+    <li><a href="Variables.html">变量</a></li>
+    <li><a href="Interpolation.html">插值</a></li>
+    <li><a href="Operators.html">运算符</a></li>
+    <li><a href="Mixins.html">混合书写</a></li>
+    <li><a href="Functions.html">方法</a></li>
+    <li><a href="KeywordArguments.html">关键字参数</a></li>
+    <li><a href="Built-in_Functions.html">内置方法</a></li>
+    <li><a href="RestParams.html">其余参数</a></li>
+    <li><a href="Comments.html">注释</a></li>
+    <li><a href="Conditionals.html">条件</a></li>
+    <li><a href="Iteration.html.html">迭代</a></li>
+    <li><a href="import.html">@import</a></li>
+    <li><a href="media.html">@media</a></li>
+    <li><a href="font-face.html">@font-face</a></li>
+    <li><a href="keyframes.html">@keyframes</a></li>
+    <li><a href="extend.html">@extend</a></li>
+    <li><a href="url.html">url()</a></li>
+    <li><a href="CSSLiteral.html">CSS字面量</a></li>
+    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li>
+    <li><a href="CharEscaping.html">字符转码</a></li>
+    <li class="active"><a href="Executable.html">可执行性</a></li>
+    <li><a href="ErrorReporting.html">错误报告</a></li>
+    <li><a href="ConnectMiddleware.html">连接中间件</a></li>
+    <li><a href="IntrospectionAPI.html">自检API</a></li>
+    <li><a href="JavaScriptAPI.html">JavaScript API</a></li>
+    <li><a href="http://github.com/visionmedia/nib">Nib下CSS扩展</a></li>
+    <li><a href="http://learnboost.github.com/stylus/try.html">Stylus在线体验!</a></li>
+   </ul>
+  </div>
+  <div class="main">
+   <a href="#nav" id="toggle">Menu</a>
+   <div id="content">
+    <h1>可执行性(Executable)</h1>
+    <h2>Stylus可执行代码</h2>
+    <p>正因有stylus可执行性，Stylus才能将自身转换成CSS.</p>
+    <pre>Usage: stylus [options] [command] [&#60; in [> out]]
+              [file|dir ...]
 
-   </div> 
-   <div id="footer"> 
-    <div class="f_box"> 
-     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p> 
-     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p> 
-    </div> 
-    <div class="s_box"> 
-     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a> 
-    </div> 
-    <div class="t_box"> 
-     <ul class="legal-links pure-g"> 
-      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li> 
-      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li> 
-     </ul> 
-     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p> 
-    </div> 
-   </div> 
-</div> 
+Commands:
+
+  help <prop>     Opens help info for <prop> in
+                  your default browser. (OS X only)
+
+Options:
+
+  -u, --use <path>        Utilize the stylus plugin at <path>
+  -i, --interactive       Start interactive REPL
+  -w, --watch             Watch file(s) for changes and re-compile
+  -o, --out <dir>         Output to <dir> when passing files
+  -C, --css <src> [dest]  Convert CSS input to Stylus
+  -I, --include <path>    Add <path> to lookup paths
+  -c, --compress          Compress CSS output
+  -d, --compare           Display input along with output
+  -f, --firebug           Emits debug infos in the generated css that
+                          can be used by the FireStylus Firebug plugin
+  -l, --line-numbers      Emits comments in the generated CSS
+                          indicating the corresponding Stylus line
+  -V, --version           Display the version of Stylus
+  -h, --help              Display help information</pre>
+    <h2>STDIO编译范例</h2>
+    <p>stylus读取自stdin输出到stdout, 因此，如下例：</p>
+    <pre>$ stylus --compress &#60; some.styl > some.css</pre>
+    <p>在终端机上尝试Stylus，书写下面的内容，然后为__EOF__按下CTRL-D：</p>
+    <pre>$ stylus
+ body
+   color red
+   font 14px Arial, sans-serif</pre>
+    <h2>编译文件范例</h2>
+    <p>stylus亦接受文件和目录。例如，一个目录名为css将在同一目录编译并输出.css文件。</p>
+    <pre>$ stylus css</pre>
+    <p>下面的将会输出到./public/stylesheets:</p>
+    <pre>$ stylus css --out public/stylesheets</pre>
+    <p>或一些文件：</p>
+    <pre>$ stylus one.styl two.styl</pre>
+    <p>为了开发的目的，你可以使用linenos选项发出指令在生成的CSS中显示Stylus文件名以及行数。</p>
+    <pre>$ stylus --line-numbers <path></pre>
+    <p>或是firebug选项，如果你想使用firebug的FireStylus扩展。</p>
+    <pre>$ stylus --firebug <path></pre>
+    <h2>转换CSS</h2>
+    <p>如果你想把CSS转换成简洁的Stylus语法，可以使用--css标志。通过标准输入输出：</p>
+    <pre>$ stylus --css &#60; test.css > test.styl</pre>
+    <p>输出基本名一致的.styl文件。</p>
+    <pre>$ stylus --css test.css</pre>
+    <p>输出特定的目标：</p>
+    <pre>$ stylus --css test.css /tmp/out.styl</pre>
+    <h2>CSS属性的帮助</h2>
+    <p>在OS X上，stylus help <prop>会打开你默认浏览器并显示给定的<prop>属性的帮助文档。</p>
+    <pre>$ stylus help box-shadow</pre>
+    <h2>壳层交互(Interactive Shell)</h2>
+    <p>Stylus REPL (Read-Eval-Print-Loop)或“壳层交互(Interactive Shell)”允许你直接在终端机上把玩Stylus的表达式。</p>
+    <p>注意只有表达式可以生效，而不是选择器之类。为了简单，我们添加<code>-i</code>或<code>--interactive</code>标志：</p>
+    <pre>$ stylus -i
+> color = white
+=> #fff
+> color - rgb(200,50,0)
+=> #37cdff
+> color
+=> #fff
+> color -= rgb(200,50,0)
+=> #37cdff
+> color
+=> #37cdff
+> rgba(color, 0.5)
+=> rgba(55,205,255,0.5)</pre>
+    <h2>利用插件</h2>
+    <p>本例我们将使用nibStylus插件来说明它的CLI使用。</p>
+    <p>假设我们有如下的Stylus, 其导入nib并使用nib的<code>linear-gradient()</code>方法：</p>
+    <pre>@import 'nib'
+
+body
+  background: linear-gradient(20px top, white, black) </pre>
+    <p>我们是使用stylus(1)通过标准输入输出试图渲染的第一个东西可能就像下面这样：</p>
+    <pre>$ stylus &#60; test.styl</pre>
+    <p>这可能会生成如下的错误，因为Stylus不知道去哪里找到nib.</p>
+    <pre>Error: stdin:3
+    1|
+    2|
+  > 3| @import 'nib'
+    4|
+    5| body
+    6|   background: linear-gradient(20px top, white, black)</pre>
+    <p>对于简单应用Stylus API们的插件，我们可以添加查找路径。通过使用--include或-I标志：</p>
+    <pre>$ stylus &#60; test.styl --include ../nib/lib</pre>
+    <p>现在生成内容如下。您可能注意到了，gradient-data-uri()以及create-gradient-image()以字面量形式输出了。这是因为，当插件提供JavaScript API的时候，光暴露插件的路径是不够的。但是，如果我们仅仅想要的是纯粹Stylus nib函数，则足够了。</p>
+    <pre>body {
+  background: url(gradient-data-uri(create-gradient-image(20px, top)));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #000));
+  background: -webkit-linear-gradient(top, #fff 0%, #000 100%);
+  background: -moz-linear-gradient(top, #fff 0%, #000 100%);
+  background: linear-gradient(top, #fff 0%, #000 100%);
+}</pre>
+    <p>因此，我们需要做的是使用--use或-u标志。其会找寻node模块（有或者没有.js扩展名）路径，这里的require()模块或调用style.use(fn())来暴露该插件（定义js函数等）。</p>
+    <pre>$ stylus &#60; test.styl --use ../nib/lib/nib</pre>
+    <p>生成为：</p>
+    <pre>body {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAABmJLR0QA/wD/AP+gvaeTAAAAI0lEQVQImWP4+fPnf6bPnz8zMH358oUBwkIjKJBgYGNj+w8Aphk4blt0EcMAAAAASUVORK5CYII=");
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #000));
+  background: -webkit-linear-gradient(top, #fff 0%, #000 100%);
+  background: -moz-linear-gradient(top, #fff 0%, #000 100%);
+  background: linear-gradient(top, #fff 0%, #000 100%);
+}</pre>
+   </div>
+   <div id="footer">
+    <div class="f_box">
+     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p>
+     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p>
+    </div>
+    <div class="s_box">
+     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a>
+    </div>
+    <div class="t_box">
+     <ul class="legal-links pure-g">
+      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li>
+      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li>
+     </ul>
+     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p>
+    </div>
+   </div>
+</div>
   <script>
     var navigation = responsiveNav("#nav", {customToggle: "#toggle"});
-  </script>  
+  </script>
  </body>
 </html>

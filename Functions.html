@@ -1,76 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>Document</title> 
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
-  <link rel="stylesheet" href="css/styles.css" /> 
-  <link rel="stylesheet" href="css/normalize.css" /> 
-  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-  <script type="text/javascript" src="js/responsive-nav.js"></script> 
+ <head>
+  <meta charset="UTF-8" />
+  <title>方法(Functions)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script>
     var doc = document, docEl = doc.documentElement;
     docEl.className = docEl.className.replace(/(^|\s)no-js(\s|$)/, " js ");
-  </script> 
- </head> 
- <body> 
-  <div role="navigation" id="nav"> 
-   <ul> 
-    <li><a href="index.html">stylus</a></li> 
-    <li><a href="Selectors.html">选择器</a></li> 
-    <li><a href="Variables.html">变量</a></li> 
-    <li><a href="Interpolation.html">插值</a></li> 
-    <li><a href="Operators.html">运算符</a></li> 
-    <li><a href="Mixins.html">混合书写</a></li> 
-    <li class="active"><a href="Functions.html">方法</a></li> 
-    <li><a href="KeywordArguments.html">关键字参数</a></li> 
-    <li><a href="Built-in_Functions.html">内置方法</a></li> 
-    <li><a href="RestParams.html">其余参数</a></li> 
-    <li><a href="Comments.html">注释</a></li> 
-    <li><a href="Conditionals.html">条件</a></li> 
-    <li><a href="Iteration.html.html">迭代</a></li> 
-    <li><a href="import.html">@import</a></li> 
-    <li><a href="media.html">@media</a></li> 
-    <li><a href="font-face.html">@font-face</a></li> 
-    <li><a href="keyframes.html">@keyframes</a></li> 
-    <li><a href="extend.html">@extend</a></li> 
-    <li><a href="url.html">url()</a></li> 
-    <li><a href="CSSLiteral.html">CSS字面量</a></li> 
-    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li> 
-    <li><a href="CharEscaping.html">字符转码</a></li> 
-    <li><a href="Executable.html">可执行性</a></li> 
-    <li><a href="ErrorReporting.html">错误报告</a></li> 
-    <li><a href="ConnectMiddleware.html">连接中间件</a></li> 
-    <li><a href="IntrospectionAPI.html">自检API</a></li> 
-    <li><a href="JavaScriptAPI.html">JavaScript API</a></li> 
-    <li><a href="CSS3_Extensions_with_Nib.html">Nib下CSS扩展</a></li> 
-    <li><a href="StylusOline.html">Stylus在线体验!</a></li> 
-   </ul> 
-  </div> 
-  <div class="main"> 
-   <a href="#nav" id="toggle">Menu</a> 
-   <div id="content"> 
+  </script>
+ </head>
+ <body>
+  <div role="navigation" id="nav">
+   <ul>
+    <li><a href="index.html">stylus</a></li>
+    <li><a href="Selectors.html">选择器</a></li>
+    <li><a href="Variables.html">变量</a></li>
+    <li><a href="Interpolation.html">插值</a></li>
+    <li><a href="Operators.html">运算符</a></li>
+    <li><a href="Mixins.html">混合书写</a></li>
+    <li class="active"><a href="Functions.html">方法</a></li>
+    <li><a href="KeywordArguments.html">关键字参数</a></li>
+    <li><a href="Built-in_Functions.html">内置方法</a></li>
+    <li><a href="RestParams.html">其余参数</a></li>
+    <li><a href="Comments.html">注释</a></li>
+    <li><a href="Conditionals.html">条件</a></li>
+    <li><a href="Iteration.html.html">迭代</a></li>
+    <li><a href="import.html">@import</a></li>
+    <li><a href="media.html">@media</a></li>
+    <li><a href="font-face.html">@font-face</a></li>
+    <li><a href="keyframes.html">@keyframes</a></li>
+    <li><a href="extend.html">@extend</a></li>
+    <li><a href="url.html">url()</a></li>
+    <li><a href="CSSLiteral.html">CSS字面量</a></li>
+    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li>
+    <li><a href="CharEscaping.html">字符转码</a></li>
+    <li><a href="Executable.html">可执行性</a></li>
+    <li><a href="ErrorReporting.html">错误报告</a></li>
+    <li><a href="ConnectMiddleware.html">连接中间件</a></li>
+    <li><a href="IntrospectionAPI.html">自检API</a></li>
+    <li><a href="JavaScriptAPI.html">JavaScript API</a></li>
+    <li><a href="http://github.com/visionmedia/nib">Nib下CSS扩展</a></li>
+    <li><a href="http://learnboost.github.com/stylus/try.html">Stylus在线体验!</a></li>
+   </ul>
+  </div>
+  <div class="main">
+   <a href="#nav" id="toggle">Menu</a>
+   <div id="content">
+    <h1>方法(Functions)</h1>
+    <h2>函数</h2>
+    <p>Stylus强大之处就在于其内置的语言函数定义。其定义与混入(mixins)一致；却可以返回值。</p>
+    <h2>返回值</h2>
+    <p>很简单的例子，两数值相加的方法：</p>
+    <pre>add(a, b)
+  a + b</pre>
+    <p>我们可以在特定条件下使用该方法，如在属性值中：</p>
+    <pre>body
+  padding add(10px, 5)</pre>
+    <p>编译结果：</p>
+    <pre>body {
+  padding: 15px;
+}</pre>
+    <h2>默认参数</h2>
+    <p>可选参数往往有个默认的给定表达。在Stylus中，我们甚至可以超越默认参数。</p>
+    <p>例如：</p>
+    <pre>add(a, b = a)
+  a + b
 
-   </div> 
-   <div id="footer"> 
-    <div class="f_box"> 
-     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p> 
-     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p> 
-    </div> 
-    <div class="s_box"> 
-     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a> 
-    </div> 
-    <div class="t_box"> 
-     <ul class="legal-links pure-g"> 
-      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li> 
-      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li> 
-     </ul> 
-     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p> 
-    </div> 
-   </div> 
-</div> 
+add(10, 5)
+// => 15
+
+add(10)
+// => 20</pre>
+    <p>注意：因为参数默认是赋值，我们可可以使用函数调用作为默认值。</p>
+    <pre>add(a, b = unit(a, px))
+  a + b</pre>
+    <h2>函数体</h2>
+    <p>我们可以把简单的<code>add()</code>方法更进一步。通过内置<code>unit()</code>把单位都变成px, 因为赋值在每个参数上，因此，我们可以无视单位换算。</p>
+    <pre>add(a, b = a)
+  a = unit(a, px)
+  b = unit(b, px)
+  a + b
+
+add(15%, 10deg)
+// => 25</pre>
+    <h2>多个返回值</h2>
+    <p>Stylus的函数可以返回多个值，就像你给变量赋多个值一样。</p>
+    <p>例如，下面就是一个有效赋值：</p>
+    <pre>sizes = 15px 10px
+
+sizes[0]
+// => 15px</pre>
+    <p>类似的，我们可以在函数中返回多个值：</p>
+    <pre>sizes()
+ 15px 10px
+
+sizes()[0]
+// => 15px</pre>
+    <p>有个小小的例外就是返回值是标识符。例如，下面看上去像一个属性赋值给Stylus（因为没有操作符）。</p>
+    <pre>swap(a, b)
+  b a</pre>
+    <p>为避免歧义，我们可以使用括号，或是return关键字。</p>
+    <pre>swap(a, b)
+  (b a)
+
+swap(a, b)
+  return b a</pre>
+    <h2>条件</h2>
+    <p>比方说，我们想要创建一个名为<code>stringish()</code>的函数，用来决定参数是否是字符串。我们检查val是否是字符串或缩进（类似字符）。如下，使用yes和no代替true和false.</p>
+    <pre>stringish(val)
+  if val is a 'string' or val is a 'ident'
+    yes
+  else
+    no</pre>
+    <p>使用：</p>
+    <pre>stringish('yay') == yes
+// => true
+
+stringish(yay) == yes
+// => true
+
+stringish(0) == no
+// => true</pre>
+    <p>注意：yes和no并不是布尔值。本例中，它们只是简单的未定义标识符。
+另外一个例子</p>
+    <pre>compare(a, b)
+  if a > b
+    higher
+  else if a &#60; b
+    lower
+  else
+    equal</pre>
+    <p>使用：</p>
+    <pre>compare(5, 2)
+// => higher
+
+compare(1, 5)
+// => lower
+
+compare(10, 10)
+// => equal</pre>
+    <h2>别名</h2>
+    <p>给函数起个别名，和简单，直接等于就可以了。例如上面的add()弄个别名plus(), 如下：</p>
+    <pre>plus = add
+
+plus(1, 2)
+// => 3</pre>
+    <h2>变量函数</h2>
+    <p>我们可以把函数当作变量传递到新的函数中。例如，<code>invoke()</code>接受函数作为参数，因此，我们可以传递<code>add()</code>以及<code>sub()</code>.</p>
+    <pre>invoke(a, b, fn)
+  fn(a, b)
+
+add(a, b)
+  a + b
+
+body
+  padding invoke(5, 10, add)
+  padding invoke(5, 10, sub)</pre>
+    <p>编译结果：</p>
+    <pre>body {
+  padding: 15;
+  padding: -5;
+}</pre>
+    <h2>参数</h2>
+    <p><code>arguments</code>是所有函数体都有的局部变量，包含传递的所有参数。
+例如：</p>
+    <pre>sum()
+  n = 0
+  for num in arguments
+    n = n + num
+
+sum(1,2,3,4,5)
+// => 15</pre>
+    <h2>哈希示例</h2>
+    <p>下面，我们定义<code>get(hash, key)</code>方法，用来返回key值或null. 我们遍历每个键值对，如果键值匹配，返回对应的值。</p>
+    <pre>get(hash, key)
+  return pair[1] if pair[0] == key for pair in hash</pre>
+    <p>下面例子可以证明，语言函数模样的Stylus表达式具有更大的灵活性。</p>
+    <pre>hash = (one 1) (two 2) (three 3)
+
+get(hash, two)
+// => 2
+
+get(hash, three)
+// => 3
+
+get(hash, something)
+// => null</pre>
+   </div>
+   <div id="footer">
+    <div class="f_box">
+     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p>
+     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p>
+    </div>
+    <div class="s_box">
+     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a>
+    </div>
+    <div class="t_box">
+     <ul class="legal-links pure-g">
+      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li>
+      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li>
+     </ul>
+     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p>
+    </div>
+   </div>
+</div>
   <script>
     var navigation = responsiveNav("#nav", {customToggle: "#toggle"});
-  </script>  
+  </script>
  </body>
 </html>

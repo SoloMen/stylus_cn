@@ -1,76 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>Document</title> 
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
-  <link rel="stylesheet" href="css/styles.css" /> 
-  <link rel="stylesheet" href="css/normalize.css" /> 
-  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-  <script type="text/javascript" src="js/responsive-nav.js"></script> 
+ <head>
+  <meta charset="UTF-8" />
+  <title>JavaScript API</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script>
     var doc = document, docEl = doc.documentElement;
     docEl.className = docEl.className.replace(/(^|\s)no-js(\s|$)/, " js ");
-  </script> 
- </head> 
- <body> 
-  <div role="navigation" id="nav"> 
-   <ul> 
-    <li><a href="index.html">stylus</a></li> 
-    <li><a href="Selectors.html">选择器</a></li> 
-    <li><a href="Variables.html">变量</a></li> 
-    <li><a href="Interpolation.html">插值</a></li> 
-    <li><a href="Operators.html">运算符</a></li> 
-    <li><a href="Mixins.html">混合书写</a></li> 
-    <li><a href="Functions.html">方法</a></li> 
-    <li><a href="KeywordArguments.html">关键字参数</a></li> 
-    <li><a href="Built-in_Functions.html">内置方法</a></li> 
-    <li><a href="RestParams.html">其余参数</a></li> 
-    <li><a href="Comments.html">注释</a></li> 
-    <li><a href="Conditionals.html">条件</a></li> 
-    <li><a href="Iteration.html.html">迭代</a></li> 
-    <li><a href="import.html">@import</a></li> 
-    <li><a href="media.html">@media</a></li> 
-    <li><a href="font-face.html">@font-face</a></li> 
-    <li><a href="keyframes.html">@keyframes</a></li> 
-    <li><a href="extend.html">@extend</a></li> 
-    <li><a href="url.html">url()</a></li> 
-    <li><a href="CSSLiteral.html">CSS字面量</a></li> 
-    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li> 
-    <li><a href="CharEscaping.html">字符转码</a></li> 
-    <li><a href="Executable.html">可执行性</a></li> 
-    <li><a href="ErrorReporting.html">错误报告</a></li> 
-    <li><a href="ConnectMiddleware.html">连接中间件</a></li> 
-    <li><a href="IntrospectionAPI.html">自检API</a></li> 
-    <li class="active"><a href="JavaScriptAPI.html">JavaScript API</a></li> 
-    <li><a href="CSS3_Extensions_with_Nib.html">Nib下CSS扩展</a></li> 
-    <li><a href="StylusOline.html">Stylus在线体验!</a></li> 
-   </ul> 
-  </div> 
-  <div class="main"> 
-   <a href="#nav" id="toggle">Menu</a> 
-   <div id="content"> 
+  </script>
+ </head>
+ <body>
+  <div role="navigation" id="nav">
+   <ul>
+    <li><a href="index.html">stylus</a></li>
+    <li><a href="Selectors.html">选择器</a></li>
+    <li><a href="Variables.html">变量</a></li>
+    <li><a href="Interpolation.html">插值</a></li>
+    <li><a href="Operators.html">运算符</a></li>
+    <li><a href="Mixins.html">混合书写</a></li>
+    <li><a href="Functions.html">方法</a></li>
+    <li><a href="KeywordArguments.html">关键字参数</a></li>
+    <li><a href="Built-in_Functions.html">内置方法</a></li>
+    <li><a href="RestParams.html">其余参数</a></li>
+    <li><a href="Comments.html">注释</a></li>
+    <li><a href="Conditionals.html">条件</a></li>
+    <li><a href="Iteration.html.html">迭代</a></li>
+    <li><a href="import.html">@import</a></li>
+    <li><a href="media.html">@media</a></li>
+    <li><a href="font-face.html">@font-face</a></li>
+    <li><a href="keyframes.html">@keyframes</a></li>
+    <li><a href="extend.html">@extend</a></li>
+    <li><a href="url.html">url()</a></li>
+    <li><a href="CSSLiteral.html">CSS字面量</a></li>
+    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li>
+    <li><a href="CharEscaping.html">字符转码</a></li>
+    <li><a href="Executable.html">可执行性</a></li>
+    <li><a href="ErrorReporting.html">错误报告</a></li>
+    <li><a href="ConnectMiddleware.html">连接中间件</a></li>
+    <li><a href="IntrospectionAPI.html">自检API</a></li>
+    <li class="active"><a href="JavaScriptAPI.html">JavaScript API</a></li>
+    <li><a href="http://github.com/visionmedia/nib">Nib下CSS扩展</a></li>
+    <li><a href="http://learnboost.github.com/stylus/try.html">Stylus在线体验!</a></li>
+   </ul>
+  </div>
+  <div class="main">
+   <a href="#nav" id="toggle">Menu</a>
+   <div id="content">
+    <h1>JavaScript API</h1>
+    <h2>JavaScript API</h2>
+    <p><code>require</code>模块，用给定的Stylus代码字符串调用<code>render()</code>，以及（可选的）<code>optional</code>对象。</p>
+    <p>传递<code>filename</code>参数可以利用Stylus框架提供更好的错误报告。</p>
+    <pre>var stylus = require('stylus');
 
-   </div> 
-   <div id="footer"> 
-    <div class="f_box"> 
-     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p> 
-     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p> 
-    </div> 
-    <div class="s_box"> 
-     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a> 
-    </div> 
-    <div class="t_box"> 
-     <ul class="legal-links pure-g"> 
-      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li> 
-      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li> 
-     </ul> 
-     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p> 
-    </div> 
-   </div> 
-</div> 
+stylus.render(str, { filename: 'nesting.css' }, function(err, css){
+  if (err) throw err;
+  console.log(css);
+});</pre>
+    <p>我们可以用更渐进的方式实现做一样的事：</p>
+    <pre>var stylus = require('stylus');
+
+stylus(str)
+  .set('filename', 'nesting.css')
+  .render(function(err, css){
+    // logic
+  });</pre>
+    <h2>.set(setting, value)</h2>
+    <p>应用诸如<code>filename</code>的设置，或导入<code>paths</code>:</p>
+    <pre>.set('filename', __dirname + '/test.styl')
+ .set('paths', [__dirname, __dirname + '/mixins'])</pre>
+    <h2>.include(path)</h2>
+    <p>渐进替换<code>.set('paths',...)</code>的就是<code>.include()</code>. 当其他Stylus库（已暴露路径）暴露的时候，这个是理想的选择。</p>
+    <pre>stylus(str)
+  .include(require('nib').path)
+  .include(process.env.HOME + '/mixins')
+  .render(...)</pre>
+    <h2>.import(path)</h2>
+    <p>推迟给定<code>path</code>导入，直到计算被执行。下面这个例子基本上跟在Stylus片段中执行<code>@import 'mixins/vendor'</code>一样：</p>
+    <pre>var stylus = require('../')
+  , str = require('fs').readFileSync(__dirname + '/test.styl', 'utf8');
+
+stylus(str)
+  .set('filename', __dirname + '/test.styl')
+  .import('mixins/vendor')
+  .render(function(err, css){
+  if (err) throw err;
+  console.log(css);
+});</pre>
+    <h2>.define(name, node)</h2>
+    <p>通过传递一个Node，我们可以定义一个全局变量。当库（该库依赖于其它库可用性）里面暴露某些条件特征的时候，这个就很有用。例如Nib扩展库条件支持node-canvas, 提供图片生成。</p>
+    <p>但这并不是一直可用的，因此Nib可以定义：</p>
+    <pre>.define('has-canvas', stylus.nodes.false);
+ .define('some-setting', new stylus.nodes.String('some value'));</pre>
+    <p>如果可能，Stylus也会转换JavaScript值为Stylus值。</p>
+    <pre>.define('string', 'some string')
+ .define('number', 15.5)
+ .define('some-bool', true)
+ .define('list', [1,2,3])
+ .define('list', [1,2,[3,4,[5,6]]])
+ .define('list', { foo: 'bar', bar: 'baz' })
+ .define('families', ['Helvetica Neue', 'Helvetica', 'sans-serif'])</pre>
+    <p>下面是一些规则应用在js函数返回值上：</p>
+    <pre>.define('get-list', function(){
+  return ['foo', 'bar', 'baz'];
+})</pre>
+    <h2>.define(name, fn)</h2>
+    <p>该方法允许你未Stylus提供JavaScript定义的函数。正如想到JavaScript用C++绑定。当有一些事情无法用Stylus完成的时候，就在JavaScript中定义它。</p>
+    <p>下面这个例子，我们定义了4个函数：add(), sub(), image-width(), image-height(). 这些函数必须返回一个Node, 通过stylus.nodes该构造以及其它nodes都可以了。</p>
+    <pre>  var stylus = require('../')
+    , nodes = stylus.nodes
+    , utils = stylus.utils
+    , fs = require('fs');
+
+  function add(a, b) {
+    return a.operate('+', b);
+  }
+
+  function sub(a, b) {
+    return a.operate('-', b);
+  }
+
+  function imageDimensions(img) {
+    // 宣告 node (img) 是一个 String 节点,
+    // 为错误报告传递参数名
+    utils.assertType(img, 'string', 'img');
+    var path = img.val;
+
+    // 得到尺寸有必要取得字节数
+    // 如果这是真的，你会每种格式都处理下，
+    // 而不是读取整个图片 :)
+    var data = fs.readFileSync(__dirname + '/' + path);
+
+    // GIF
+    // 当然，你可以支持更多 :)
+    if ('GIF' == data.slice(0, 3).toString()) {
+      var w = data.slice(6, 8)
+        , h = data.slice(8, 10);
+      w = w[1] &#60;&#60; 8 | w[0];
+      h = h[1] &#60;&#60; 8 | h[0];
+    }
+
+    return [w, h];
+  }
+
+  function imageWidth(img) {
+    return new nodes.Unit(imageDimensions(img)[0]);
+  }
+
+  function imageHeight(img) {
+    return new nodes.Unit(imageDimensions(img)[1]);
+  }
+
+  stylus(str)
+    .set('filename', 'js-functions.styl')
+    .define('add', add)
+    .define('sub', sub)
+    .define('image-width', imageWidth)
+    .define('image-height', imageHeight)
+    .render(function(err, css){
+      if (err) throw err;
+      console.log(css);
+    });</pre>
+    <p>为了进一步的参考（直到本文档全部结束），请看下面的文件：</p>
+    <ul>
+      <li>lib/nodes/*</li>
+      <li>lib/utils.js</li>
+    </ul>
+    <h2>.use(fn)</h2>
+    <p>当被调用时，给定fn被渲染器调用，允许所有上面的方法被使用。这允许插件轻易地暴露自己，定义函数，路径等。</p>
+    <pre>var mylib = function(style){
+  style.define('add', add);
+  style.define('sub', sub);
+};
+
+stylus(str)
+  .use(mylib)
+  .render(...)</pre>
+   </div>
+   <div id="footer">
+    <div class="f_box">
+     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p>
+     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p>
+    </div>
+    <div class="s_box">
+     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a>
+    </div>
+    <div class="t_box">
+     <ul class="legal-links pure-g">
+      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li>
+      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li>
+     </ul>
+     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p>
+    </div>
+   </div>
+</div>
   <script>
     var navigation = responsiveNav("#nav", {customToggle: "#toggle"});
-  </script>  
+  </script>
  </body>
 </html>

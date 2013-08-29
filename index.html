@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
- <head> 
-  <meta charset="UTF-8" /> 
-  <title>Document</title> 
-  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
-  <link rel="stylesheet" href="css/styles.css" /> 
-  <link rel="stylesheet" href="css/normalize.css" /> 
-  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-  <script type="text/javascript" src="js/responsive-nav.js"></script> 
+ <head>
+  <meta charset="UTF-8" />
+  <title>stylus</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script>
     var doc = document, docEl = doc.documentElement;
     docEl.className = docEl.className.replace(/(^|\s)no-js(\s|$)/, " js ");
-  </script> 
- </head> 
- <body> 
-  <div role="navigation" id="nav"> 
-   <ul> 
-    <li class="active"><a href="index.html">stylus</a></li> 
-    <li><a href="Selectors.html">选择器</a></li> 
-    <li><a href="Variables.html">变量</a></li> 
-    <li><a href="Interpolation.html">插值</a></li> 
-    <li><a href="Operators.html">运算符</a></li> 
-    <li><a href="Mixins.html">混合书写</a></li> 
-    <li><a href="Functions.html">方法</a></li> 
-    <li><a href="KeywordArguments.html">关键字参数</a></li> 
-    <li><a href="Built-in_Functions.html">内置方法</a></li> 
-    <li><a href="RestParams.html">其余参数</a></li> 
-    <li><a href="Comments.html">注释</a></li> 
-    <li><a href="Conditionals.html">条件</a></li> 
-    <li><a href="Iteration.html.html">迭代</a></li> 
-    <li><a href="import.html">@import</a></li> 
-    <li><a href="media.html">@media</a></li> 
-    <li><a href="font-face.html">@font-face</a></li> 
-    <li><a href="keyframes.html">@keyframes</a></li> 
-    <li><a href="extend.html">@extend</a></li> 
-    <li><a href="url.html">url()</a></li> 
-    <li><a href="CSSLiteral.html">CSS字面量</a></li> 
-    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li> 
-    <li><a href="CharEscaping.html">字符转码</a></li> 
-    <li><a href="Executable.html">可执行性</a></li> 
-    <li><a href="ErrorReporting.html">错误报告</a></li> 
-    <li><a href="ConnectMiddleware.html">连接中间件</a></li> 
-    <li><a href="IntrospectionAPI.html">自检API</a></li> 
-    <li><a href="JavaScriptAPI.html">JavaScript API</a></li> 
-    <li><a href="CSS3_Extensions_with_Nib.html">Nib下CSS扩展</a></li> 
-    <li><a href="StylusOline.html">Stylus在线体验!</a></li> 
-   </ul> 
-  </div> 
-  <div class="main"> 
-   <a href="#nav" id="toggle">Menu</a> 
-   <div id="content"> 
-    <h1>css需要一个英雄！</h1> 
-    <h2>下面是以前的css。</h2> 
+  </script>
+ </head>
+ <body>
+  <div role="navigation" id="nav">
+   <ul>
+    <li class="active"><a href="index.html">stylus</a></li>
+    <li><a href="Selectors.html">选择器</a></li>
+    <li><a href="Variables.html">变量</a></li>
+    <li><a href="Interpolation.html">插值</a></li>
+    <li><a href="Operators.html">运算符</a></li>
+    <li><a href="Mixins.html">混合书写</a></li>
+    <li><a href="Functions.html">方法</a></li>
+    <li><a href="KeywordArguments.html">关键字参数</a></li>
+    <li><a href="Built-in_Functions.html">内置方法</a></li>
+    <li><a href="RestParams.html">其余参数</a></li>
+    <li><a href="Comments.html">注释</a></li>
+    <li><a href="Conditionals.html">条件</a></li>
+    <li><a href="Iteration.html.html">迭代</a></li>
+    <li><a href="import.html">@import</a></li>
+    <li><a href="media.html">@media</a></li>
+    <li><a href="font-face.html">@font-face</a></li>
+    <li><a href="keyframes.html">@keyframes</a></li>
+    <li><a href="extend.html">@extend</a></li>
+    <li><a href="url.html">url()</a></li>
+    <li><a href="CSSLiteral.html">CSS字面量</a></li>
+    <li><a href="CSSStyleSyntax.html">CSS样式解析</a></li>
+    <li><a href="CharEscaping.html">字符转码</a></li>
+    <li><a href="Executable.html">可执行性</a></li>
+    <li><a href="ErrorReporting.html">错误报告</a></li>
+    <li><a href="ConnectMiddleware.html">连接中间件</a></li>
+    <li><a href="IntrospectionAPI.html">自检API</a></li>
+    <li><a href="JavaScriptAPI.html">JavaScript API</a></li>
+    <li><a href="http://github.com/visionmedia/nib">Nib下CSS扩展</a></li>
+    <li><a href="http://learnboost.github.com/stylus/try.html">Stylus在线体验!</a></li>
+   </ul>
+  </div>
+  <div class="main">
+   <a href="#nav" id="toggle">Menu</a>
+   <div id="content">
+    <h1>css需要一个英雄！</h1>
+    <h2>下面是以前的css。</h2>
     <pre>body {
   font: 12px Helvetica, Arial, sans-serif;
 }
@@ -59,16 +59,16 @@ a.button {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-}</pre> 
-    <h2>如果我们能省略大括号？</h2> 
+}</pre>
+    <h2>如果我们能省略大括号？</h2>
     <pre>body
   font: 12px Helvetica, Arial, sans-serif;
 
 a.button
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;</pre> 
-    <h2>分号是不是也可以去掉呢？</h2> 
+  border-radius: 5px;</pre>
+    <h2>分号是不是也可以去掉呢？</h2>
     <pre>
 body
   font: 12px Helvetica, Arial, sans-serif
@@ -76,143 +76,143 @@ body
 a.button
   -webkit-border-radius: 5px
   -moz-border-radius: 5px
-  border-radius: 5px</pre> 
-    <h2>何必让冒号继续停留？</h2> 
+  border-radius: 5px</pre>
+    <h2>何必让冒号继续停留？</h2>
     <pre>
 body
   font 12px Helvetica, Arial, sans-serif
-  
+
 a.button
   -webkit-border-radius 5px
   -moz-border-radius 5px
-  border-radius 5px</pre> 
-    <h2>来干些事看看</h2> 
+  border-radius 5px</pre>
+    <h2>来干些事看看</h2>
     <pre>
 border-radius()
   -webkit-border-radius arguments
   -moz-border-radius arguments
   border-radius arguments
-  
+
 body
   font 12px Helvetica, Arial, sans-serif
-  
+
 a.button
-  border-radius(5px)</pre> 
-    <h2>如何混合书写呢？</h2> 
+  border-radius(5px)</pre>
+    <h2>如何混合书写呢？</h2>
     <pre>
 border-radius()
   -webkit-border-radius arguments
   -moz-border-radius arguments
   border-radius arguments
-  
+
 body
   font 12px Helvetica, Arial, sans-serif
-  
+
 a.button
-  border-radius 5px</pre> 
-    <h2>创建与分享</h2> 
+  border-radius 5px</pre>
+    <h2>创建与分享</h2>
     <pre>
 @import 'vendor'
 
 body
   font 12px Helvetica, Arial, sans-serif
-  
+
 a.button
-  border-radius 5px</pre> 
-    <h2>甚至我们可以加入语言函数</h2> 
+  border-radius 5px</pre>
+    <h2>甚至我们可以加入语言函数</h2>
     <pre>
 sum(nums...)
   sum = 0
   sum += n for n in nums
-  
+
 sum(1 2 3 4)
-// =&gt; 10</pre> 
-    <h2>如果所有可选又如何？</h2> 
+// =&gt; 10</pre>
+    <h2>如果所有可选又如何？</h2>
     <pre>
 fonts = helvetica, arial, sans-serif
 
 body {
   padding: 50px;
   font: 14px/1.4 fonts;
-}</pre> 
-    <div class="install"> 
-     <h2>stylus的获取</h2> 
-     <p>如果你的电脑已经安装了node.js,那么安装stylus将变得非常容易。若没有安装，可以到这里下载！ 安装完成后，确保它们还包括npm和node的包管理工具。</p> 
-     <p>那么，现在打开node自带的命令行工具，键入如下代码:</p> 
-     <pre class="terminal">$ npm install stylus</pre> 
-     <p>等待安装完成即可</p> 
-     <br /> 
-     <p>如果想要了解下面这些特征或者更多信息，可以访问我们的github</p> 
-    </div> 
-    <div class="feature"> 
-     <h3>stylus特征</h3> 
-     <table> 
-      <tbody> 
-       <tr> 
-        <td>冒号可选</td> 
-        <td>分号可选</td> 
-        <td>逗号可选</td> 
-        <td>括号可选</td> 
-       </tr> 
-       <tr> 
-        <td>变量</td> 
-        <td>插值</td> 
-        <td>混合书写</td> 
-        <td>算术</td> 
-       </tr> 
-       <tr> 
-        <td>强制类型转换</td> 
-        <td>动态导入</td> 
-        <td>条件</td> 
-        <td>迭代</td> 
-       </tr> 
-       <tr> 
-        <td>嵌套选择</td> 
-        <td>父级参考</td> 
-        <td>变量函数调用</td> 
-        <td>词法作用域</td> 
-       </tr> 
-       <tr> 
-        <td>内置函数(&gt;25)</td> 
-        <td>内部语言函数</td> 
-        <td>压缩可选</td> 
-        <td>图像内联可选</td> 
-       </tr> 
-       <tr> 
-        <td>可执行Stylus</td> 
-        <td>强大的错误报告</td> 
-        <td>单行和多行注释</td> 
-        <td>CSS字面量</td> 
-       </tr> 
-       <tr> 
-        <td>字符转义</td> 
-        <td>TextMate捆绑</td> 
-        <td>以及更多</td> 
-        <td>&nbsp;</td> 
-       </tr> 
-      </tbody> 
-     </table> 
-    </div> 
-   </div> 
-   <div id="footer"> 
-    <div class="f_box"> 
-     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p> 
-     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p> 
-    </div> 
-    <div class="s_box"> 
-     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a> 
-    </div> 
-    <div class="t_box"> 
-     <ul class="legal-links pure-g"> 
-      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li> 
-      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li> 
-     </ul> 
-     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p> 
-    </div> 
-   </div> 
-  </div> 
+}</pre>
+    <div class="install">
+     <h2>stylus的获取</h2>
+     <p>如果你的电脑已经安装了node.js,那么安装stylus将变得非常容易。若没有安装，可以到这里下载！ 安装完成后，确保它们还包括npm和node的包管理工具。</p>
+     <p>那么，现在打开node自带的命令行工具，键入如下代码:</p>
+     <pre class="terminal">$ npm install stylus</pre>
+     <p>等待安装完成即可</p>
+     <br />
+     <p>如果想要了解下面这些特征或者更多信息，可以访问我们的github</p>
+    </div>
+    <div class="feature">
+     <h3>stylus特征</h3>
+     <table>
+      <tbody>
+       <tr>
+        <td>冒号可选</td>
+        <td>分号可选</td>
+        <td>逗号可选</td>
+        <td>括号可选</td>
+       </tr>
+       <tr>
+        <td>变量</td>
+        <td>插值</td>
+        <td>混合书写</td>
+        <td>算术</td>
+       </tr>
+       <tr>
+        <td>强制类型转换</td>
+        <td>动态导入</td>
+        <td>条件</td>
+        <td>迭代</td>
+       </tr>
+       <tr>
+        <td>嵌套选择</td>
+        <td>父级参考</td>
+        <td>变量函数调用</td>
+        <td>词法作用域</td>
+       </tr>
+       <tr>
+        <td>内置函数(&gt;25)</td>
+        <td>内部语言函数</td>
+        <td>压缩可选</td>
+        <td>图像内联可选</td>
+       </tr>
+       <tr>
+        <td>可执行Stylus</td>
+        <td>强大的错误报告</td>
+        <td>单行和多行注释</td>
+        <td>CSS字面量</td>
+       </tr>
+       <tr>
+        <td>字符转义</td>
+        <td>TextMate捆绑</td>
+        <td>以及更多</td>
+        <td>&nbsp;</td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+   <div id="footer">
+    <div class="f_box">
+     <p class="legal-license"> This site is built with &lt;3 using Pure v0.2.1 </p>
+     <p class="legal-license"> All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise. </p>
+    </div>
+    <div class="s_box">
+     <a href="http://yuilibrary.com/"> <img width="65" height="30" alt="logo" src="/img/logo-footer.png" /> </a>
+    </div>
+    <div class="t_box">
+     <ul class="legal-links pure-g">
+      <li class="pure"> <a href="https://github.com/yui/pure/">GitHub Project</a> </li>
+      <li class="pure"> <a href="http://yuilibrary.com/security/">Security Contact Info</a> </li>
+     </ul>
+     <p class="legal-copyright"> &copy; 2013 Yahoo! Inc. All rights reserved. </p>
+    </div>
+   </div>
+  </div>
   <script>
     var navigation = responsiveNav("#nav", {customToggle: "#toggle"});
-  </script>  
+  </script>
  </body>
 </html>
